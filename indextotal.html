@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total & Event Experience | Miami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #121212;
+            --charcoal: #1f1f1f;
+            --cream: #f9f7f2;
+            --gold: #bfa15a;
+            --gold-light: #d4bc82;
+            --text-gray: #a0a0a0;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--gold);
+            color: var(--dark);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            border: 1px solid var(--gold);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--charcoal);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header .line {
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            padding: 40px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .service-card i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 100px 0;
+            background-color: var(--dark);
+        }
+
+        .packages-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .package-box {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            border: 1px solid var(--gold);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .package-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .package-box ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .package-box ul li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .package-box ul li::before {
+            content: "•";
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 100px 0;
+            background-color: var(--cream);
+            color: var(--dark);
+        }
+
+        .menu-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .menu-text h2 {
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .menu-list {
+            margin-top: 30px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .menu-item span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: var(--white);
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .menu-content { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="container">
+        <div class="logo">Total & Event</div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#packages">Paquetes</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <p style="text-transform: uppercase; letter-spacing: 5px; color: var(--gold); font-size: 0.8rem; margin-bottom: 10px;">Eventos Íntimos | Miami</p>
+            <h1>Donde cada detalle<br><em>cuenta tu historia</em></h1>
+            <p>Especialistas en experiencias exclusivas para 10 a 35 personas. Nos encargamos de todo: desde el concepto hasta la limpieza final.</p>
+            <a href="#" class="btn">Solicitar Cotización</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Servicios</h2>
+                <div class="line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Decoración & Ambientación</h3>
+                    <p>Diseños personalizados que transforman cualquier espacio en un escenario de ensueño.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Catering Curado</h3>
+                    <p>Propuestas gastronómicas de alto nivel, desde tablas de pastoreo hasta cenas completas.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Coctelería Premium</h3>
+                    <p>Bebidas y cocteles diseñados para maridar perfectamente con tu celebración.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Staff Exclusivo</h3>
+                    <p>Meseros y personal capacitado para que tú solo te preocupes de disfrutar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experiencias Curadas</h2>
+                <p style="color: var(--text-gray);">4 niveles de personalización para tu evento perfecto</p>
+                <div class="line" style="margin-top: 15px;"></div>
+            </div>
+            <div class="packages-container">
+                <div class="package-box">
+                    <h3>Essentials</h3>
+                    <ul>
+                        <li>Decoración base</li>
+                        <li>Gestión de 10-15 invitados</li>
+                        <li>Coordinación de montaje</li>
+                    </ul>
+                    <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.7rem;">Ver más</a>
+                </div>
+                <div class="package-box" style="border-width: 2px; transform: scale(1.05); background: rgba(191, 161, 90, 0.05);">
+                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--dark); padding: 5px 15px; font-size: 0.6rem; font-weight: bold; text-transform: uppercase;">Más Popular</div>
+                    <h3>Signature</h3>
+                    <ul>
+                        <li>Decoración completa temática</li>
+                        <li>Catering y Tabla de Waffles</li>
+                        <li>Staff dedicado</li>
+                        <li>Hasta 25 invitados</li>
+                    </ul>
+                    <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.7rem;">Ver más</a>
+                </div>
+                <div class="package-box">
+                    <h3>Elite</h3>
+                    <ul>
+                        <li>Experiencia Full-Service</li>
+                        <li>Bar abierto premium</li>
+                        <li>Limpieza post-evento</li>
+                        <li>Hasta 35 invitados</li>
+                    </ul>
+                    <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.7rem;">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="menu-content">
+                <div class="menu-image">
+                    <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&q=80&w=1000" alt="Catering" style="width: 100%; height: 500px; object-fit: cover; border-radius: 5px;">
+                </div>
+                <div class="menu-text">
+                    <h2>Nuestra Propuesta Gastronómica</h2>
+                    <p>Cada bocado está pensado para deleitar los sentidos. Utilizamos ingredientes frescos y una presentación artística.</p>
+                    <div class="menu-list">
+                        <div class="menu-item">
+                            <span>Grazing Boards</span>
+                            <span>Selección del Chef</span>
+                        </div>
+                        <div class="menu-item">
+                            <span>Tablas de Picoteo</span>
+                            <span>Gourmet</span>
+                        </div>
+                        <div class="menu-item">
+                            <span>Barra de Waffles</span>
+                            <span>Dulce & Salado</span>
+                        </div>
+                        <div class="menu-item">
+                            <span>Coctelería de Autor</span>
+                            <span>Seasonal</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 30px; font-style: italic; font-size: 0.9rem;">*Opciones personalizadas disponibles bajo petición.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-logo">Total & Event Experience</div>
+            <p>Miami, Florida | Exclusividad en cada detalle</p>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">WhatsApp</a>
+                <a href="#">Email</a>
+            </div>
+            <p style="font-size: 0.7rem; color: var(--text-gray); margin-top: 40px;">&copy; 2026 Total & Event Experience. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
