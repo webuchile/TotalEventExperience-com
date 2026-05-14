@@ -3,436 +3,478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Total & Event Experience | Miami</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --dark: #121212;
-            --charcoal: #1f1f1f;
-            --cream: #f9f7f2;
-            --gold: #bfa15a;
-            --gold-light: #d4bc82;
-            --text-gray: #a0a0a0;
-            --white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark);
-            color: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            padding: 30px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: absolute;
-            width: 100%;
-            z-index: 100;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            color: var(--gold);
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--white);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
-            padding-top: 80px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-            color: var(--text-gray);
-            font-weight: 300;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background-color: var(--gold);
-            color: var(--dark);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: all 0.3s;
-            border: 1px solid var(--gold);
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: var(--gold);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background-color: var(--charcoal);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .section-header .line {
-            width: 50px;
-            height: 2px;
-            background-color: var(--gold);
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .service-card {
-            padding: 40px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-        }
-
-        .service-card i {
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .service-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .service-card p {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        /* Packages Section */
-        .packages {
-            padding: 100px 0;
-            background-color: var(--dark);
-        }
-
-        .packages-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .package-box {
-            flex: 1;
-            min-width: 250px;
-            max-width: 350px;
-            border: 1px solid var(--gold);
-            padding: 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .package-box h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-        }
-
-        .package-box ul {
-            list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-
-        .package-box ul li {
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            color: var(--text-gray);
-        }
-
-        .package-box ul li::before {
-            content: "•";
-            color: var(--gold);
-            margin-right: 10px;
-        }
-
-        /* Menu Section */
-        .menu-section {
-            padding: 100px 0;
-            background-color: var(--cream);
-            color: var(--dark);
-        }
-
-        .menu-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .menu-text h2 {
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-
-        .menu-list {
-            margin-top: 30px;
-        }
-
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding: 15px 0;
-        }
-
-        .menu-item span {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-        }
-
-        /* Footer */
-        footer {
-            padding: 60px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            margin: 20px 0;
-        }
-
-        .social-links a {
-            color: var(--white);
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .menu-content { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-        }
-    </style>
+    <title>Royal Event Experience | Miami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- Navigation -->
     <nav class="container">
-        <div class="logo">Total & Event</div>
+        <div class="logo">Royal Event</div>
         <ul class="nav-links">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#services">Servicios</a></li>
-            <li><a href="#packages">Paquetes</a></li>
-            <li><a href="#menu">Menú</a></li>
-            <li><a href="#contact">Contacto</a></li>
+            <li><a href="#home" data-es="Inicio" data-en="Home">Inicio</a></li>
+            <li><a href="#services" data-es="Servicios" data-en="Services">Servicios</a></li>
+            <li><a href="#packages" data-es="Paquetes" data-en="Packages">Paquetes</a></li>
+            <li><a href="#personalization" data-es="Bebidas" data-en="Menu">Bebidas</a></li>
+            <li><a href="#booking" data-es="Reservar" data-en="Book">Reservar</a></li>
+            <li><a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
         </ul>
     </nav>
 
-    <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="container">
-            <p style="text-transform: uppercase; letter-spacing: 5px; color: var(--gold); font-size: 0.8rem; margin-bottom: 10px;">Eventos Íntimos | Miami</p>
-            <h1>Donde cada detalle<br><em>cuenta tu historia</em></h1>
-            <p>Especialistas en experiencias exclusivas para 10 a 35 personas. Nos encargamos de todo: desde el concepto hasta la limpieza final.</p>
-            <a href="#" class="btn">Solicitar Cotización</a>
+            <p style="text-transform: uppercase; letter-spacing: 5px; color: var(--gold); font-size: 0.8rem; margin-bottom: 10px;" data-es="Eventos Exclusivos | Miami" data-en="Exclusive Events | Miami">Eventos Exclusivos | Miami</p>
+            <h1 data-es="Donde cada detalle<br><em>cuenta tu historia</em>" data-en="Where every detail<br><em>tells your story</em>">Donde cada detalle<br><em>cuenta tu historia</em></h1>
+            <p data-es="Especialistas en experiencias exclusivas para 10 a 35 personas. Nos encargamos de todo: desde el concepto hasta la limpieza final." data-en="Specialists in exclusive experiences for 10 to 35 people. We handle everything: from concept to final cleanup.">Especialistas en experiencias exclusivas para 10 a 35 personas. Nos encargamos de todo: desde el concepto hasta la limpieza final.</p>
+            <a href="#booking" class="btn" data-es="Solicitar Reserva" data-en="Book Now">Solicitar Reserva</a>
         </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2>Nuestros Servicios</h2>
+                <h2 data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</h2>
                 <div class="line"></div>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <h3>Decoración & Ambientación</h3>
-                    <p>Diseños personalizados que transforman cualquier espacio en un escenario de ensueño.</p>
+                    <h3 data-es="Decoración & Ambientación" data-en="Décor & Ambiance">Decoración & Ambientación</h3>
+                    <p data-es="Arcos de globos personalizados, mesas temáticas y distribución de espacios que transforman cualquier lugar en un escenario de ensueño." data-en="Custom balloon arches, themed tables and space layouts that transform any venue into a dreamlike setting.">Arcos de globos personalizados, mesas temáticas y distribución de espacios que transforman cualquier lugar en un escenario de ensueño.</p>
                 </div>
                 <div class="service-card">
-                    <h3>Catering Curado</h3>
-                    <p>Propuestas gastronómicas de alto nivel, desde tablas de pastoreo hasta cenas completas.</p>
+                    <h3 data-es="Catering Curado" data-en="Curated Catering">Catering Curado</h3>
+                    <p data-es="Tablas de snacks artísticas, catering personalizado y experiencias gastronómicas diseñadas para cada celebración." data-en="Artistic snack boards, personalized catering and culinary experiences designed for each celebration.">Tablas de snacks artísticas, catering personalizado y experiencias gastronómicas diseñadas para cada celebración.</p>
                 </div>
                 <div class="service-card">
-                    <h3>Coctelería Premium</h3>
-                    <p>Bebidas y cocteles diseñados para maridar perfectamente con tu celebración.</p>
+                    <h3 data-es="Coctelería Premium" data-en="Premium Cocktails">Coctelería Premium</h3>
+                    <p data-es="Cócteles de autor, bar abierto y bebidas seleccionadas para crear momentos memorables." data-en="Signature cocktails, open bar and curated beverages to create memorable moments.">Cócteles de autor, bar abierto y bebidas seleccionadas para crear momentos memorables.</p>
                 </div>
                 <div class="service-card">
-                    <h3>Staff Exclusivo</h3>
-                    <p>Meseros y personal capacitado para que tú solo te preocupes de disfrutar.</p>
+                    <h3 data-es="Staff Exclusivo" data-en="Exclusive Staff">Staff Exclusivo</h3>
+                    <p data-es="Meseros, coordinadores y hosts profesionales para que disfrutes sin preocupaciones." data-en="Professional servers, coordinators and hosts so you can enjoy without worries.">Meseros, coordinadores y hosts profesionales para que disfrutes sin preocupaciones.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Packages Section -->
     <section id="packages" class="packages">
         <div class="container">
             <div class="section-header">
-                <h2>Experiencias Curadas</h2>
-                <p style="color: var(--text-gray);">4 niveles de personalización para tu evento perfecto</p>
-                <div class="line" style="margin-top: 15px;"></div>
+                <h2 data-es="Experiencias Curadas" data-en="Curated Experiences">Experiencias Curadas</h2>
+                <p data-es="4 niveles de personalización para tu evento perfecto" data-en="4 levels of customization for your perfect event">4 niveles de personalización para tu evento perfecto</p>
+                <div class="line"></div>
             </div>
             <div class="packages-container">
+                <!-- Package A: Célébrate -->
                 <div class="package-box">
-                    <h3>Essentials</h3>
+                    <h3>Célébrate</h3>
+                    <div class="package-price">$500</div>
+                    <div class="package-capacity" data-es="Hasta 10 invitados" data-en="Up to 10 guests">Hasta 10 invitados</div>
                     <ul>
-                        <li>Decoración base</li>
-                        <li>Gestión de 10-15 invitados</li>
-                        <li>Coordinación de montaje</li>
+                        <li data-es="Arco de globos + Mesa de bienvenida" data-en="Balloon arch + Welcome table">Arco de globos + Mesa de bienvenida</li>
+                        <li data-es="Decoración con globos distribuidos" data-en="Balloon distribution décor">Decoración con globos distribuidos</li>
+                        <li data-es="Tabla de snacks (60 cm)" data-en="Snacks board (60 cm)">Tabla de snacks (60 cm)</li>
+                        <li data-es="2 artículos de catering a elección" data-en="2 catering items of choice">2 artículos de catering a elección</li>
+                        <li data-es="1 cóctel + 3 refrescos" data-en="1 cocktail + 3 soft drinks">1 cóctel + 3 refrescos</li>
                     </ul>
-                    <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.7rem;">Ver más</a>
+                    <button class="btn btn-secondary" onclick="toggleDetails(this)" data-es="Ver Detalles" data-en="View Details">Ver Detalles</button>
+                    <div class="package-details">
+                        <h4 data-es="Decoración Incluida:" data-en="Included Décor:">Decoración Incluida:</h4>
+                        <p data-es="✓ Arco de globos para fotos<br>✓ Mesa para bienvenida<br>✓ Mesa para regalos/recuerdos<br>✓ Mesa de cóctel central<br>✓ Mesa de comedor principal<br>✓ Globos en techo y distribuidos" data-en="✓ Balloon arch for photos<br>✓ Welcome table<br>✓ Gift/memories table<br>✓ Central cocktail table<br>✓ Main dining table<br>✓ Ceiling and distributed balloons">✓ Arco de globos para fotos<br>✓ Mesa para bienvenida<br>✓ Mesa para regalos/recuerdos<br>✓ Mesa de cóctel central<br>✓ Mesa de comedor principal<br>✓ Globos en techo y distribuidos</p>
+                    </div>
                 </div>
-                <div class="package-box" style="border-width: 2px; transform: scale(1.05); background: rgba(191, 161, 90, 0.05);">
-                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--dark); padding: 5px 15px; font-size: 0.6rem; font-weight: bold; text-transform: uppercase;">Más Popular</div>
-                    <h3>Signature</h3>
+
+                <!-- Package B: Gather -->
+                <div class="package-box featured">
+                    <div class="badge" data-es="MÁS POPULAR" data-en="MOST POPULAR">MÁS POPULAR</div>
+                    <h3>Gather</h3>
+                    <div class="package-price">$900</div>
+                    <div class="package-capacity" data-es="Hasta 20 invitados" data-en="Up to 20 guests">Hasta 20 invitados</div>
                     <ul>
-                        <li>Decoración completa temática</li>
-                        <li>Catering y Tabla de Waffles</li>
-                        <li>Staff dedicado</li>
-                        <li>Hasta 25 invitados</li>
+                        <li data-es="Todo lo de Célébrate, más:" data-en="Everything from Célébrate, plus:">Todo lo de Célébrate, más:</li>
+                        <li data-es="5 artículos de catering a elección" data-en="5 catering items of choice">5 artículos de catering a elección</li>
+                        <li data-es="2 cócteles + 5 refrescos" data-en="2 cocktails + 5 soft drinks">2 cócteles + 5 refrescos</li>
+                        <li data-es="2 Meseros + 1 Coordinador" data-en="2 Servers + 1 Coordinator">2 Meseros + 1 Coordinador</li>
                     </ul>
-                    <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.7rem;">Ver más</a>
+                    <button class="btn" onclick="toggleDetails(this)" data-es="Ver Detalles" data-en="View Details">Ver Detalles</button>
+                    <div class="package-details">
+                        <h4 data-es="Staff Incluido:" data-en="Included Staff:">Staff Incluido:</h4>
+                        <p data-es="✓ 2 Meseros profesionales para servicio de bebidas y cócteles<br>✓ 1 Coordinador asegurando que todo fluya sin problemas" data-en="✓ 2 Professional servers for beverage and cocktail service<br>✓ 1 Coordinator ensuring everything flows smoothly">✓ 2 Meseros profesionales para servicio de bebidas y cócteles<br>✓ 1 Coordinador asegurando que todo fluya sin problemas</p>
+                    </div>
                 </div>
+
+                <!-- Package C: Indulge -->
                 <div class="package-box">
-                    <h3>Elite</h3>
+                    <h3>Indulge</h3>
+                    <div class="package-price">$1,300</div>
+                    <div class="package-capacity" data-es="Hasta 30 invitados" data-en="Up to 30 guests">Hasta 30 invitados</div>
                     <ul>
-                        <li>Experiencia Full-Service</li>
-                        <li>Bar abierto premium</li>
-                        <li>Limpieza post-evento</li>
-                        <li>Hasta 35 invitados</li>
+                        <li data-es="Todo lo de Celebrate, más:" data-en="Everything from Célébrate, plus:">Todo lo de Célébrate, más:</li>
+                        <li data-es="7 artículos de catering a elección" data-en="7 catering items of choice">7 artículos de catering a elección</li>
+                        <li data-es="5 cócteles + 9 refrescos" data-en="5 cocktails + 9 soft drinks">5 cócteles + 9 refrescos</li>
+                        <li data-es="3 Meseros + 1 Coordinador" data-en="3 Servers + 1 Coordinator">3 Meseros + 1 Coordinador</li>
                     </ul>
-                    <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.7rem;">Ver más</a>
+                    <button class="btn btn-secondary" onclick="toggleDetails(this)" data-es="Ver Detalles" data-en="View Details">Ver Detalles</button>
+                    <div class="package-details">
+                        <h4 data-es="Experiencia Premium:" data-en="Premium Experience:">Experiencia Premium:</h4>
+                        <p data-es="✓ 3 Meseros para servicio impecable<br>✓ 1 Coordinador dedicado<br>✓ Variedad máxima de bebidas<br>✓ Experiencia full-service" data-en="✓ 3 Servers for impeccable service<br>✓ 1 Dedicated Coordinator<br>✓ Maximum beverage variety<br>✓ Full-service experience">✓ 3 Meseros para servicio impecable<br>✓ 1 Coordinador dedicado<br>✓ Variedad máxima de bebidas<br>✓ Experiencia full-service</p>
+                    </div>
+                </div>
+
+                <!-- Package D: Unforgettable -->
+                <div class="package-box">
+                    <h3>Unforgettable</h3>
+                    <div class="package-price">$1,700</div>
+                    <div class="package-capacity" data-es="Hasta 35 invitados" data-en="Up to 35 guests">Hasta 35 invitados</div>
+                    <ul>
+                        <li data-es="Todo lo de Celebrate, más:" data-en="Everything from Célébrate, plus:">Todo lo de Célébrate, más:</li>
+                        <li data-es="9 artículos de catering (generoso)" data-en="9 catering items (generous)">9 artículos de catering (generoso)</li>
+                        <li data-es="7 cócteles + Bar premium" data-en="7 cocktails + Premium bar">7 cócteles + Bar premium</li>
+                        <li data-es="4 Meseros + 1 Coordinador" data-en="4 Servers + 1 Coordinator">4 Meseros + 1 Coordinador</li>
+                    </ul>
+                    <button class="btn btn-secondary" onclick="toggleDetails(this)" data-es="Ver Detalles" data-en="View Details">Ver Detalles</button>
+                    <div class="package-details">
+                        <h4 data-es="Experiencia Completa:" data-en="Complete Experience:">Experiencia Completa:</h4>
+                        <p data-es="✓ 4 Meseros para servicio excepcional<br>✓ 1 Coordinador dedicado<br>✓ 7 opciones de licores premium<br>✓ 13 refrescos y bebidas variadas<br>✓ La experiencia completa de Royal Event" data-en="✓ 4 Servers for exceptional service<br>✓ 1 Dedicated Coordinator<br>✓ 7 premium liquor options<br>✓ 13 varied soft drinks and beverages<br>✓ The complete Royal Event experience">✓ 4 Meseros para servicio excepcional<br>✓ 1 Coordinador dedicado<br>✓ 7 opciones de licores premium<br>✓ 13 refrescos y bebidas variadas<br>✓ La experiencia completa de Royal Event</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="menu" class="menu-section">
+    <!-- Personalization Section -->
+    <section id="personalization" class="personalization">
         <div class="container">
-            <div class="menu-content">
-                <div class="menu-image">
-                    <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&q=80&w=1000" alt="Catering" style="width: 100%; height: 500px; object-fit: cover; border-radius: 5px;">
+            <div class="section-header">
+                <h2 data-es="Personaliza tu Experiencia" data-en="Customize Your Experience">Personaliza tu Experiencia</h2>
+                <p data-es="Elige de nuestras opciones gourmet" data-en="Choose from our gourmet options">Elige de nuestras opciones gourmet</p>
+                <div class="line"></div>
+            </div>
+
+            <div class="options-grid">
+                <!-- Grazing Board -->
+                <div class="option-box">
+                    <h3 data-es="The Spread: Tabla de Snacks" data-en="The Spread: Snacks Board">The Spread: Tabla de Snacks</h3>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Quesos:" data-en="Cheeses:">Quesos:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Mozzarella, Gouda, Provolone, Cheddar, Feta, Parmesano</li>
+                    </ul>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Frutas:" data-en="Fruits:">Frutas:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Fresas, Uvas, Piña, Arándanos, Moras, Kiwi, Manzanas, Peras, Aceitunas</li>
+                    </ul>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Frutos Secos:" data-en="Nuts:">Frutos Secos:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Nueces, Almendras, Pistachos, Maní, Avellanas</li>
+                    </ul>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Dulces & Snacks:" data-en="Sweets & Snacks:">Dulces & Snacks:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Chocolate, Gomitas, M&M's, Doritos, Nachos, Papas, Galletas, Pretzels, Palomitas</li>
+                    </ul>
                 </div>
-                <div class="menu-text">
-                    <h2>Nuestra Propuesta Gastronómica</h2>
-                    <p>Cada bocado está pensado para deleitar los sentidos. Utilizamos ingredientes frescos y una presentación artística.</p>
-                    <div class="menu-list">
-                        <div class="menu-item">
-                            <span>Grazing Boards</span>
-                            <span>Selección del Chef</span>
+
+                <!-- Open Bar -->
+                <div class="option-box">
+                    <h3 data-es="Barrel of Fun: Bar Abierto" data-en="Barrel of Fun: Open Bar">Barrel of Fun: Bar Abierto</h3>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Licores & Cervezas:" data-en="Liquors & Beers:">Licores & Cervezas:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Cerveza, Baileys, Ron, Vodka, Tequila, Whisky</li>
+                    </ul>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Vinos:" data-en="Wines:">Vinos:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Cabernet Sauvignon, Merlot, Sauvignon Blanc, Chardonnay</li>
+                    </ul>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Bebidas Refrescantes:" data-en="Soft Drinks:">Bebidas Refrescantes:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Coca-Cola, Sprite, Pepsi, Canada Dry, Fanta, Dr Pepper</li>
+                    </ul>
+                </div>
+
+                <!-- Catering Options -->
+                <div class="option-box">
+                    <h3 data-es="Opciones de Catering" data-en="Catering Options">Opciones de Catering</h3>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Salados & Canapés:" data-en="Savory & Canapés:">Salados & Canapés:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Ceviche, Brochetas Caprese, Canapés variados, Mini Pizzas</li>
+                    </ul>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Dulces & Postres:" data-en="Sweets & Desserts:">Dulces & Postres:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Lemon Pie, Kuchen, Brochetas de malvaviscos, Fresas con chocolate, Trufas, Cocadas</li>
+                    </ul>
+                </div>
+
+                <!-- Waffle Bar -->
+                <div class="option-box">
+                    <h3 data-es="Tabla de Wafles Personalizada" data-en="Custom Waffle Bar">Tabla de Wafles Personalizada</h3>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Frutas a Elección:" data-en="Fruits of Choice:">Frutas a Elección:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Plátano, Frutilla, Kiwi, Uva, Mango, Arándano, Mora, Pera, Manzana</li>
+                    </ul>
+                    <h4 style="color: var(--gold); font-size: 0.9rem; margin-top: 15px;" data-es="Salsas a Elección:" data-en="Sauces of Choice:">Salsas a Elección:</h4>
+                    <ul style="font-size: 0.85rem; color: var(--text-gray);">
+                        <li>Nutella, Mermelada, Crema batida, Dulce de leche, Miel, Caramelo, Crema Inglesa</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="instagram" class="instagram-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-es="Síguenos en Instagram" data-en="Follow Us on Instagram">Síguenos en Instagram</h2>
+                <div class="line"></div>
+            </div>
+            <div class="instagram-content">
+                <div class="instagram-feed">
+                    <div class="instagram-embed">
+                        <i class="fab fa-instagram" style="font-size: 4rem;"></i>
+                        <p data-es="Mira nuestros eventos recientes<br>y galería de inspiración" data-en="See our recent events<br>and inspiration gallery">Mira nuestros eventos recientes<br>y galería de inspiración</p>
+                        <a href="https://www.instagram.com/totalyeventexperience/" target="_blank" class="instagram-link" data-es="@totalyeventexperience" data-en="@totalyeventexperience">@totalyeventexperience</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 data-es="Inspiración en Cada Foto" data-en="Inspiration in Every Photo">Inspiración en Cada Foto</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 20px;" data-es="Explora nuestro portfolio de eventos exclusivos, desde decoraciones hasta momentos capturados en cada celebración." data-en="Explore our exclusive event portfolio, from decorations to captured moments at every celebration.">Explora nuestro portfolio de eventos exclusivos, desde decoraciones hasta momentos capturados en cada celebración.</p>
+                    <ul style="list-style: none; margin-top: 30px;">
+                        <li style="margin-bottom: 15px; color: var(--text-gray);"><strong style="color: var(--gold);">📸</strong> <span data-es="Galerías actualizadas semanalmente" data-en="Galleries updated weekly">Galerías actualizadas semanalmente</span></li>
+                        <li style="margin-bottom: 15px; color: var(--text-gray);"><strong style="color: var(--gold);">✨</strong> <span data-es="Inspiración de diseño y decoración" data-en="Design and décor inspiration">Inspiración de diseño y decoración</span></li>
+                        <li style="margin-bottom: 15px; color: var(--text-gray);"><strong style="color: var(--gold);">💬</strong> <span data-es="Contacta directamente vía DM" data-en="Contact us directly via DM">Contacta directamente vía DM</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps Section -->
+    <section id="maps" class="maps-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-es="Ubícanos en Google Maps" data-en="Find Us on Google Maps">Ubícanos en Google Maps</h2>
+                <div class="line"></div>
+            </div>
+            <div class="maps-placeholder">
+                <i class="fas fa-map-location-dot"></i>
+                <h3 data-es="Mapa de Ubicación" data-en="Location Map">Mapa de Ubicación</h3>
+                <p data-es="El mapa de ubicación se agregará próximamente" data-en="Location map will be added soon">El mapa de ubicación se agregará próximamente</p>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-gray);" data-es="Contacta con nosotros para coordinar tu evento en Miami" data-en="Contact us to coordinate your event in Miami">Contacta con nosotros para coordinar tu evento en Miami</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Calendar & Questionnaire -->
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-es="Reserva tu Evento" data-en="Book Your Event">Reserva tu Evento</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="calendar-wrapper">
+                <div class="calendar-container">
+                    <h3 data-es="Selecciona una Fecha" data-en="Select a Date">Selecciona una Fecha</h3>
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <button onclick="prevMonth()">&lt;</button>
+                            <h4 id="monthYear"></h4>
+                            <button onclick="nextMonth()">&gt;</button>
                         </div>
-                        <div class="menu-item">
-                            <span>Tablas de Picoteo</span>
-                            <span>Gourmet</span>
-                        </div>
-                        <div class="menu-item">
-                            <span>Barra de Waffles</span>
-                            <span>Dulce & Salado</span>
-                        </div>
-                        <div class="menu-item">
-                            <span>Coctelería de Autor</span>
-                            <span>Seasonal</span>
+                        <div style="margin-top: 20px;">
+                            <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-bottom: 20px;">
+                                <div style="text-align: center; color: var(--gold); font-size: 0.8rem; font-weight: 600;" data-es="Dom" data-en="Sun">Dom</div>
+                                <div style="text-align: center; color: var(--gold); font-size: 0.8rem; font-weight: 600;" data-es="Lun" data-en="Mon">Lun</div>
+                                <div style="text-align: center; color: var(--gold); font-size: 0.8rem; font-weight: 600;" data-es="Mar" data-en="Tue">Mar</div>
+                                <div style="text-align: center; color: var(--gold); font-size: 0.8rem; font-weight: 600;" data-es="Mié" data-en="Wed">Mié</div>
+                                <div style="text-align: center; color: var(--gold); font-size: 0.8rem; font-weight: 600;" data-es="Jue" data-en="Thu">Jue</div>
+                                <div style="text-align: center; color: var(--gold); font-size: 0.8rem; font-weight: 600;" data-es="Vie" data-en="Fri">Vie</div>
+                                <div style="text-align: center; color: var(--gold); font-size: 0.8rem; font-weight: 600;" data-es="Sab" data-en="Sat">Sab</div>
+                            </div>
+                            <div id="calendarDays" class="calendar-grid"></div>
                         </div>
                     </div>
-                    <p style="margin-top: 30px; font-style: italic; font-size: 0.9rem;">*Opciones personalizadas disponibles bajo petición.</p>
+                    <p style="margin-top: 20px; color: var(--text-gray); font-size: 0.85rem;" data-es="Fecha seleccionada:" data-en="Selected date:"><strong id="selectedDate" style="color: var(--gold);">-</strong></p>
+                </div>
+
+                <div class="booking-form">
+                    <h3 data-es="Cuéntanos sobre tu Evento" data-en="Tell Us About Your Event">Cuéntanos sobre tu Evento</h3>
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label data-es="Nombre Completo" data-en="Full Name">Nombre Completo *</label>
+                            <input type="text" name="name" required placeholder="Ej: Juan Pérez">
+                        </div>
+                        <div class="form-group">
+                            <label data-es="Correo Electrónico" data-en="Email">Correo Electrónico *</label>
+                            <input type="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp *</label>
+                            <input type="tel" name="phone" required placeholder="+1 (555) 000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label data-es="Número de Invitados" data-en="Number of Guests">Número de Invitados *</label>
+                            <select name="guests" required>
+                                <option data-es="Selecciona..." data-en="Select...">Selecciona...</option>
+                                <option data-es="Hasta 10 invitados" data-en="Up to 10 guests">Hasta 10 invitados (Paquete Célébrate)</option>
+                                <option data-es="Hasta 20 invitados" data-en="Up to 20 guests">Hasta 20 invitados (Paquete Gather)</option>
+                                <option data-es="Hasta 30 invitados" data-en="Up to 30 guests">Hasta 30 invitados (Paquete Indulge)</option>
+                                <option data-es="Hasta 35 invitados" data-en="Up to 35 guests">Hasta 35 invitados (Paquete Unforgettable)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-es="Tipo de Evento" data-en="Event Type">Tipo de Evento *</label>
+                            <input type="text" name="eventType" placeholder="Ej: Cumpleaños, Aniversario, Bridal Shower..." required>
+                        </div>
+                        <div class="form-group">
+                            <label data-es="Detalles Adicionales" data-en="Additional Details">Detalles Adicionales</label>
+                            <textarea name="details" placeholder="Cuéntanos qué tienes en mente para tu evento..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;" data-es="Enviar Solicitud" data-en="Submit Request">Enviar Solicitud</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
+    <!-- Questionnaire Section -->
+    <section class="questionnaire-section">
         <div class="container">
-            <div class="footer-logo">Total & Event Experience</div>
-            <p>Miami, Florida | Exclusividad en cada detalle</p>
-            <div class="social-links">
-                <a href="#">Instagram</a>
-                <a href="#">WhatsApp</a>
-                <a href="#">Email</a>
+            <div class="section-header">
+                <h2 data-es="Personaliza tu Servicio" data-en="Personalize Your Service">Personaliza tu Servicio</h2>
+                <p data-es="Responde estas preguntas para que tu evento sea perfecto" data-en="Answer these questions so your event is perfect">Responde estas preguntas para que tu evento sea perfecto</p>
+                <div class="line"></div>
             </div>
-            <p style="font-size: 0.7rem; color: var(--text-gray); margin-top: 40px;">&copy; 2026 Total & Event Experience. Todos los derechos reservados.</p>
+
+            <div class="questionnaire-container">
+                <form id="questionnaireForm">
+                    <div class="question-group">
+                        <h4 data-es="¿Cuál es el tipo de decoración que prefieres?" data-en="What type of décor do you prefer?">¿Cuál es el tipo de decoración que prefieres?</h4>
+                        <div>
+                            <input type="radio" id="decor1" name="decor" value="modern" required>
+                            <label for="decor1" data-es="Moderno y Minimalista" data-en="Modern & Minimalist">Moderno y Minimalista</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="decor2" name="decor" value="romantic">
+                            <label for="decor2" data-es="Romántico y Elegante" data-en="Romantic & Elegant">Romántico y Elegante</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="decor3" name="decor" value="tropical">
+                            <label for="decor3" data-es="Tropical y Colorido" data-en="Tropical & Colorful">Tropical y Colorido</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="decor4" name="decor" value="luxe">
+                            <label for="decor4" data-es="Lujo y Sofisticación" data-en="Luxury & Sophistication">Lujo y Sofisticación</label>
+                        </div>
+                    </div>
+
+                    <div class="question-group">
+                        <h4 data-es="Preferencias de Catering:" data-en="Catering Preferences:">Preferencias de Catering:</h4>
+                        <div>
+                            <input type="checkbox" id="cat1" name="catering" value="gluten-free">
+                            <label for="cat1" data-es="Sin Gluten" data-en="Gluten-Free">Sin Gluten</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="cat2" name="catering" value="vegan">
+                            <label for="cat2" data-es="Vegano/Vegetariano" data-en="Vegan/Vegetarian">Vegano/Vegetariano</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="cat3" name="catering" value="dairy-free">
+                            <label for="cat3" data-es="Sin Lácteos" data-en="Dairy-Free">Sin Lácteos</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="cat4" name="catering" value="kosher">
+                            <label for="cat4" data-es="Kosher" data-en="Kosher">Kosher</label>
+                        </div>
+                    </div>
+
+                    <div class="question-group">
+                        <h4 data-es="¿Deseas música/DJ?" data-en="Do you want music/DJ?">¿Deseas música/DJ?</h4>
+                        <div>
+                            <input type="radio" id="music1" name="music" value="no" required>
+                            <label for="music1" data-es="No" data-en="No">No</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="music2" name="music" value="playlist">
+                            <label for="music2" data-es="Playlist Seleccionada" data-en="Selected Playlist">Playlist Seleccionada</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="music3" name="music" value="dj">
+                            <label for="music3" data-es="DJ Profesional (consultar costo adicional)" data-en="Professional DJ (additional cost)">DJ Profesional (consultar costo adicional)</label>
+                        </div>
+                    </div>
+
+                    <div class="question-group">
+                        <h4 data-es="¿Tienes alguna solicitud especial?" data-en="Any special requests?">¿Tienes alguna solicitud especial?</h4>
+                        <textarea name="specialRequests" placeholder="Comparte tus ideas aquí..." style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--white); border-radius: 3px; font-family: 'Montserrat', sans-serif; min-height: 80px;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 30px;" data-es="Finalizar Cuestionario" data-en="Complete Questionnaire">Finalizar Cuestionario</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-es="Contacto" data-en="Contact">Contacto</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-item">
+                    <h3 data-es="WhatsApp" data-en="WhatsApp">WhatsApp</h3>
+                    <a href="https://wa.me/17863080636" target="_blank">+1 786 308 0636</a>
+                </div>
+                <div class="contact-item">
+                    <h3 data-es="Instagram" data-en="Instagram">Instagram</h3>
+                    <a href="https://www.instagram.com/totalyeventexperience/" target="_blank">@totalyeventexperience</a>
+                </div>
+                <div class="contact-item">
+                    <h3 data-es="Email" data-en="Email">Email</h3>
+                    <a href="mailto:info@royaleventexperience.com">info@royaleventexperience.com</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05);">
+                <p style="color: var(--text-gray); margin-bottom: 20px;" data-es="Estamos disponibles para consultas y cotizaciones personalizadas" data-en="We are available for consultations and personalized quotes">Estamos disponibles para consultas y cotizaciones personalizadas</p>
+                <a href="https://wa.me/17863080636" target="_blank" class="btn" data-es="Contáctanos Ahora" data-en="Contact Us Now">Contáctanos Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Royal Event Experience</div>
+            <p style="color: var(--text-gray); margin-bottom: 20px;" data-es="Miami, Florida | Exclusividad en cada detalle" data-en="Miami, Florida | Exclusivity in every detail">Miami, Florida | Exclusividad en cada detalle</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/totalyeventexperience/" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/17863080636" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:info@royaleventexperience.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p style="font-size: 0.7rem; color: var(--text-gray); margin-top: 40px;" data-es="© 2026 Royal Event Experience. Todos los derechos reservados." data-en="© 2026 Royal Event Experience. All rights reserved.">© 2026 Royal Event Experience. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
